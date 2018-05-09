@@ -22,15 +22,15 @@ const trigger = (
 export default class TopBar extends Component {
   render() {
     return (
-      <div className={styles.container}>  
+      <div className={styles.container}>
         <div className={styles.left} >
-          SANS APP
+          ADMIN
         </div>
         <div className={styles.right} >
-          <Dropdown 
-            trigger={trigger} 
-            options={notif} 
-            pointing='top right' 
+          <Dropdown
+            trigger={trigger}
+            options={notif}
+            pointing='top right'
             icon={<div style={{width: 30}} />}
             noResultsMessage='No notifications yet' />
           <Image src='/static/icon/profile.svg' avatar />

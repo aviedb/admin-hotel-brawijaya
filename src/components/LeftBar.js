@@ -11,12 +11,6 @@ class LeftBar extends Component {
   getRouteIndex(routeName) {
     if (routeName.indexOf('home') !== -1) {
       return 'home'
-    } else if (routeName.indexOf('menu') !== -1) {
-      return 'menu'
-    } else if (routeName.indexOf('report') !== -1) {
-      return 'report'
-    } else {
-      return 'settings'
     }
   }
 
@@ -32,54 +26,27 @@ class LeftBar extends Component {
     let { activeItem } = this.state
     return (
       <div className={styles.container} >
-        <Sidebar 
-          as={Menu} 
-          visible   
-          vertical 
-          inverted 
+        <Sidebar
+          as={Menu}
+          visible
+          vertical
+          inverted
           className={styles.wraper}>
-          <Menu.Item 
-            name='home' 
-            active={activeItem === 'home'} 
-            onClick={this.handleItemClick.bind(this, '/home')}>  
+          <Menu.Item
+            name='home'
+            active={activeItem === 'home'}
+            onClick={this.handleItemClick.bind(this, '/home')}>
             <div  >
               <Image src={'/static/icon/dashboard.svg'} className={styles.image} inline verticalAlign='bottom'/>
               <span className={styles.span} >Dashboard</span>
             </div>
           </Menu.Item>
-          <Menu.Item 
-            name='menu' 
-            active={activeItem === 'menu'} 
-            onClick={this.handleItemClick.bind(this, '/menu')}>
-            <div  >
-              <Image src={'/static/icon/menu.svg'} className={styles.image} inline verticalAlign='bottom'/>
-              <span className={styles.span} >Menu</span>
-            </div>
-          </Menu.Item>
-          <Menu.Item 
-            name='report' 
-            active={activeItem === 'report'} 
-            onClick={this.handleItemClick.bind(this, '/report')}>
-            <div to={'#'} >
-              <Image src={'/static/icon/report.svg'} className={styles.image} inline verticalAlign='bottom'/>  
-              <span className={styles.span} >Report</span>
-            </div>
-          </Menu.Item>
-          <Menu.Item 
-            name='settings' 
-            active={activeItem === 'settings'} 
-            onClick={this.handleItemClick.bind(this, '/settings')}>
-            <div to={'#'} >
-              <Image src={'/static/icon/settings.svg'} className={styles.image} inline verticalAlign='bottom'/>  
-              <span className={styles.span} >Settings</span>
-            </div>
-          </Menu.Item>
-          <Menu.Item 
-            name='logout' 
-            active={activeItem === 'logout'} 
+          <Menu.Item
+            name='logout'
+            active={activeItem === 'logout'}
             onClick={this.handleItemClick.bind(this, '/qrcode')}>
             <div to={'#'} >
-              <Image src={'/static/icon/logout.svg'} className={styles.image} inline verticalAlign='bottom'/>  
+              <Image src={'/static/icon/logout.svg'} className={styles.image} inline verticalAlign='bottom'/>
               <span className={styles.span} >Logout</span>
             </div>
           </Menu.Item>

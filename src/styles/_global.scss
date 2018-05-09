@@ -1,0 +1,28 @@
+/* Google Sans */
+@font-face {
+  font-family: 'Google Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Google Sans'), local('Google-Sans'),
+  url('../libs/fonts/google-sans.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Google Sans';
+  font-style: normal;
+  font-weight: 900;
+  src: local('Google Sans Medium'), local('Google-Sans-medium'),
+  url('../libs/fonts/google-sans-medium.woff2') format('woff2');
+}
+
+body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+	font-family: 'Google Sans';
+}
+
+::-webkit-scrollbar {
+	display: none;
+}
+
+a {
+	text-decoration: none;
+}
