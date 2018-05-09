@@ -1,0 +1,96 @@
+.container {
+  display: flex;
+
+  .bg {
+    display: block;
+    flex: 1;
+    filter: brightness(30%);
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  .wrapper {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    background-color: white;
+    width: 350px;
+    height: 100vh;
+    position: absolute;
+    right: 0;
+    align-items: center;
+
+    .title {
+      padding-top: 10vh;
+      h1 {
+        color: #076645;
+        font-weight: bold;
+        font-size: 2.2em;
+        margin-bottom: 0vh;
+      }
+
+      a {
+        font-weight: 400;
+        font-size: 1em;
+        color: slategrey;
+      }
+    }
+    
+    .login {
+      padding-top: 18vh;
+      min-width: 19vw;
+
+      a {
+        color: #076645;
+      }
+      
+    }
+
+    .cs {
+      position: absolute;
+      bottom: 0;
+      padding-bottom: 2vh;
+      padding-left: 3vw;
+      left: 0;
+
+      .customer {
+        color:#076645;
+        text-align: center;
+        font-size: 0.8em;
+        width: 10vw;
+      }
+      
+      .support {
+        padding-bottom: 15px;
+  
+        
+        .title {
+          font-size: 1em;
+          color: #076645;
+          padding-left: 5px;
+        }
+  
+        .imgSupport {
+          width: 16px;
+        }
+      }
+  
+      .text {
+        color:#076645;
+        font-size: 0.8em;
+        font-weight: 300;
+        padding-bottom: 5px;
+      }
+    }
+    
+    .link {
+      color: #076645;
+      padding-top: 3vh;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+.container {
+  display: block;
+
+  .content {
+    display: flex;
+    min-height: 100vh;
+    padding: 12px;
+    padding-top: 55px;
+    padding-left: 165px;
+    flex-wrap: wrap;
+
+    .card {
+      display: flex;
+  
+      .header {
+        border-bottom: 1px solid #e6e6e6;
+        padding-bottom: 20px;
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+.card {
+  display: block;
+  float: left;
+  width: 29vw;
+  min-width: 560px;
+
+  .header {
+    border-bottom: 1px solid #e6e6e6;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .title {
+      display: flex;
+
+      div {
+        padding-top: 8px;
+        margin-left: 10px;
+      }
+    }
+  }
+}
