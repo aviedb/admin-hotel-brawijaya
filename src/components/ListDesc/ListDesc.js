@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 
 //STYLE
-import styles from './css/list-desc.scss'
+import styles from './style.scss'
 
 //COMPONENT
 export default class ListDesc extends Component {
@@ -23,7 +23,7 @@ export default class ListDesc extends Component {
       )
     })
   }
-  
+
   render() {
     return (
       <div className={styles.container} >

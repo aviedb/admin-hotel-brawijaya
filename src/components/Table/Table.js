@@ -19,7 +19,7 @@
 import React, { Component } from 'react'
 
 //STYLES
-import styles from './css/table.scss'
+import styles from './style.scss'
 
 //COMPONENTS
 import { Pagination } from 'semantic-ui-react'
