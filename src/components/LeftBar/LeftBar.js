@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Sidebar, Menu, Image } from 'semantic-ui-react'
 import { withRouter } from 'react-router-dom'
-import styles from './css/leftBar.scss'
+import styles from './style.scss'
 
 class LeftBar extends Component {
   componentDidMount() {

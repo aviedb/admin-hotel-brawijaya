@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { Image, Dropdown } from 'semantic-ui-react'
 
 //STYLES
-import styles from './css/topBar.scss'
+import styles from './style.scss';
 
 //COMPONENT
 const notif = [
@@ -33,7 +33,7 @@ export default class TopBar extends Component {
             pointing='top right'
             icon={<div style={{width: 30}} />}
             noResultsMessage='No notifications yet' />
-          <Image src='/static/icon/profile.svg' avatar />
+          <Image className={styles.image} src='/static/icon/profile.svg' avatar />
           <span>Zain Fikri Hanastyono</span>
         </div>
       </div>

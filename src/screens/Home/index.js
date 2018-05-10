@@ -13,9 +13,6 @@ import styles from './css/index.scss'
 import LeftBar from '../../components/LeftBar'
 import TopBar from '../../components/TopBar'
 import Orders from './Orders'
-import PaymentList from './PaymentList'
-import OrderList from './OrderList'
-import PaymentDetail from './PaymentDetail'
 
 //COMPONENT
 class App extends Component {
@@ -27,9 +24,6 @@ class App extends Component {
 
         <div className={styles.content} >
           <Orders />
-          <OrderList />
-          <PaymentList />
-          <PaymentDetail />
         </div>
       </div>
     )

@@ -18,7 +18,7 @@
 //MODULES
 import React, { Component } from 'react'
 
-//STYLES 
+//STYLES
 import styles from './css/table.scss'
 
 //COMPONENTS

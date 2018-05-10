@@ -1,6 +1,7 @@
 .container {
   display: flex;
-  margin: 10px;
+  height: calc(100% - 1rem);
+  margin: auto;
   box-shadow: 0 5px 20px rgba(34,36,38,.15);
   padding: 30px;
   width: auto;

@@ -11,86 +11,101 @@ import Card from '../../components/Card'
 import Table from '../../components/Table'
 
 const tableHeaders = [
-  'Number',
-  'Name',
-  'Table',
+  'Booking Code',
+  'Full Name',
+  'Phone Number',
+  'Check-in',
+  'Check-out',
+  'Duration',
+  'Visitor',
+  'Extra',
+  'Type',
+  'Total Cost'
 ]
 
 const tableData = [
   [
-    'SC001',
-    'Zain Fikri H',
-    '12',
-  ],
-  [
-    'SC002',
-    'Yahya Sahaja ghwughewiuhgwihg ',
-    '11',
-  ],
-  [
-    'SC003',
-    'Vivy Junita',
-    '10',
-  ],
-  [
-    'SC003',
-    'Vivy Junita',
-    '10',
-  ],
-  [
-    'SC003',
-    'Vivy Junita',
-    '10',
-  ],
-  [
-    'SC002',
-    'Yahya Sahaja ghwughewiuhgwihg ',
-    '11',
-  ],
-  [
-    'SC003',
-    'Vivy Junita',
-    '10',
-  ],
-  [
-    'SC001',
-    'Zain Fikri H',
-    '12',
-  ],
-  [
-    'SC003',
-    'Vivy Junita',
-    '10',
-  ],
-  [
-    'SC001',
-    'Zain Fikri H',
-    '12',
-  ],
-  [
-    'SC002',
-    'Yahya Sahaja ',
-    '11',
-  ],
-  [
-    'SC003',
-    'Vivy Junita',
-    '10',
-  ],
-  [
-    'SC003',
-    'Vivy Junita',
-    '10',
-  ],
-  [
-    'SC001',
-    'Zain Fikri H',
-    '12',
-  ],
+    'VCBH42',
+    'Coffe Script',
+    '085851851276',
+    '9 Mei 2018',
+    '11 Mei 2018',
+    '2 night(s)',
+    '1 adult(s), 0 child(s)',
+    '1 room(s), 0 extra bed(s)',
+    'Superior',
+    'Rp. 800.000'
+  ], [
+    'VCBH42',
+    'Coffe Script',
+    '085851851276',
+    '9 Mei 2018',
+    '11 Mei 2018',
+    '2 night(s)',
+    '1 adult(s), 0 child(s)',
+    '1 room(s), 0 extra bed(s)',
+    'Superior',
+    'Rp. 800.000'
+  ], [
+    'VCBH42',
+    'Coffe Script',
+    '085851851276',
+    '9 Mei 2018',
+    '11 Mei 2018',
+    '2 night(s)',
+    '1 adult(s), 0 child(s)',
+    '1 room(s), 0 extra bed(s)',
+    'Superior',
+    'Rp. 800.000'
+  ], [
+    'VCBH42',
+    'Coffe Script',
+    '085851851276',
+    '9 Mei 2018',
+    '11 Mei 2018',
+    '2 night(s)',
+    '1 adult(s), 0 child(s)',
+    '1 room(s), 0 extra bed(s)',
+    'Superior',
+    'Rp. 800.000'
+  ], [
+    'VCBH42',
+    'Coffe Script',
+    '085851851276',
+    '9 Mei 2018',
+    '11 Mei 2018',
+    '2 night(s)',
+    '1 adult(s), 0 child(s)',
+    '1 room(s), 0 extra bed(s)',
+    'Superior',
+    'Rp. 800.000'
+  ], [
+    'VCBH42',
+    'Coffe Script',
+    '085851851276',
+    '9 Mei 2018',
+    '11 Mei 2018',
+    '2 night(s)',
+    '1 adult(s), 0 child(s)',
+    '1 room(s), 0 extra bed(s)',
+    'Superior',
+    'Rp. 800.000'
+  ], [
+    'VCBH42',
+    'Coffe Script',
+    '085851851276',
+    '9 Mei 2018',
+    '11 Mei 2018',
+    '2 night(s)',
+    '1 adult(s), 0 child(s)',
+    '1 room(s), 0 extra bed(s)',
+    'Superior',
+    'Rp. 800.000'
+  ]
 ]
 
 //INNER_CONFIG
-const MAX_ITEMS = 8
+const MAX_ITEMS = 5
 
 //COMPONENT
 export default class Orders extends Component {
@@ -131,9 +146,9 @@ export default class Orders extends Component {
             {...this.props}
           />
         </div>
-        <Table 
-          headers={tableHeaders} 
-          data={this.state.tableData} 
+        <Table
+          headers={tableHeaders}
+          data={this.state.tableData}
           pagination
           totalPages={Math.ceil(tableData.length / MAX_ITEMS)}
           onPageChange={this.handleChange}
