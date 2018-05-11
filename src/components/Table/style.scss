@@ -9,30 +9,30 @@
   .wrapper {
     width: 100%;
     position: relative;
-    
+
     .table {
       font-family: arial, sans-serif;
       border-collapse: collapse;
       width: 100%;
-  
+
       .headers {
         border-bottom: 1px solid #e6e6e6;
       }
-      
+
       .data, .header {
         text-align: left;
         padding: 10px 30px;
         padding-top: 15px;
       }
-  
+
       tr {
         transition: .3s;
-  
+
         &:hover {
           background: #f7f7f7;
           transition: .1s;
         }
-      } 
+      }
     }
 
     .loading {
