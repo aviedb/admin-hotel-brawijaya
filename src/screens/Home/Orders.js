@@ -26,7 +26,7 @@ const tableHeaders = [
 const tableData = [
   [
     'VCBH42',
-    'Coffe Script',
+    'Coffescript',
     '085851851276',
     '9 Mei 2018',
     '11 Mei 2018',
@@ -37,7 +37,7 @@ const tableData = [
     'Rp. 800.000'
   ], [
     'VCBH42',
-    'Coffe Script',
+    'Coffescript',
     '085851851276',
     '9 Mei 2018',
     '11 Mei 2018',
@@ -48,7 +48,7 @@ const tableData = [
     'Rp. 800.000'
   ], [
     'VCBH42',
-    'Coffe Script',
+    'Coffescript',
     '085851851276',
     '9 Mei 2018',
     '11 Mei 2018',
@@ -59,7 +59,7 @@ const tableData = [
     'Rp. 800.000'
   ], [
     'VCBH42',
-    'Coffe Script',
+    'Coffescript',
     '085851851276',
     '9 Mei 2018',
     '11 Mei 2018',
@@ -70,7 +70,7 @@ const tableData = [
     'Rp. 800.000'
   ], [
     'VCBH42',
-    'Coffe Script',
+    'Coffescript',
     '085851851276',
     '9 Mei 2018',
     '11 Mei 2018',
@@ -81,7 +81,7 @@ const tableData = [
     'Rp. 800.000'
   ], [
     'VCBH42',
-    'Coffe Script',
+    'Coffescript',
     '085851851276',
     '9 Mei 2018',
     '11 Mei 2018',
@@ -92,7 +92,7 @@ const tableData = [
     'Rp. 800.000'
   ], [
     'VCBH42',
-    'Coffe Script',
+    'Coffescript',
     '085851851276',
     '9 Mei 2018',
     '11 Mei 2018',
@@ -137,7 +137,7 @@ export default class Orders extends Component {
           <div className={styles.title} >
             <h1>Orders</h1>
             <div>
-              <Label circular color="grey">2</Label>
+              <Label circular color="grey">{tableData.length}</Label>
             </div>
           </div>
           <Search
