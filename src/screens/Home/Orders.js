@@ -2,6 +2,7 @@
 import React, { Component } from 'react'
 import { Search, Label } from 'semantic-ui-react'
 import _ from 'lodash'
+import axios from 'axios';
 
 //STYLES
 import styles from './css/orders.scss'
@@ -23,102 +24,59 @@ const tableHeaders = [
   'Total Cost'
 ]
 
-const tableData = [
-  [
-    'VCBH42',
-    'Coffescript',
-    '085851851276',
-    '9 Mei 2018',
-    '11 Mei 2018',
-    '2 night(s)',
-    '1 adult(s), 0 child(s)',
-    '1 room(s), 0 extra bed(s)',
-    'Superior',
-    'Rp. 800.000'
-  ], [
-    'VCBH42',
-    'Coffescript',
-    '085851851276',
-    '9 Mei 2018',
-    '11 Mei 2018',
-    '2 night(s)',
-    '1 adult(s), 0 child(s)',
-    '1 room(s), 0 extra bed(s)',
-    'Superior',
-    'Rp. 800.000'
-  ], [
-    'VCBH42',
-    'Coffescript',
-    '085851851276',
-    '9 Mei 2018',
-    '11 Mei 2018',
-    '2 night(s)',
-    '1 adult(s), 0 child(s)',
-    '1 room(s), 0 extra bed(s)',
-    'Superior',
-    'Rp. 800.000'
-  ], [
-    'VCBH42',
-    'Coffescript',
-    '085851851276',
-    '9 Mei 2018',
-    '11 Mei 2018',
-    '2 night(s)',
-    '1 adult(s), 0 child(s)',
-    '1 room(s), 0 extra bed(s)',
-    'Superior',
-    'Rp. 800.000'
-  ], [
-    'VCBH42',
-    'Coffescript',
-    '085851851276',
-    '9 Mei 2018',
-    '11 Mei 2018',
-    '2 night(s)',
-    '1 adult(s), 0 child(s)',
-    '1 room(s), 0 extra bed(s)',
-    'Superior',
-    'Rp. 800.000'
-  ], [
-    'VCBH42',
-    'Coffescript',
-    '085851851276',
-    '9 Mei 2018',
-    '11 Mei 2018',
-    '2 night(s)',
-    '1 adult(s), 0 child(s)',
-    '1 room(s), 0 extra bed(s)',
-    'Superior',
-    'Rp. 800.000'
-  ], [
-    'VCBH42',
-    'Coffescript',
-    '085851851276',
-    '9 Mei 2018',
-    '11 Mei 2018',
-    '2 night(s)',
-    '1 adult(s), 0 child(s)',
-    '1 room(s), 0 extra bed(s)',
-    'Superior',
-    'Rp. 800.000'
-  ]
-]
-
 //INNER_CONFIG
 const MAX_ITEMS = 5
 
 //COMPONENT
 export default class Orders extends Component {
-  state = {
-    tableData: tableData.slice(0, MAX_ITEMS),
-    loading: false
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      allData: [],
+      tableData: [],
+      loading: false
+    }
+  }
+
+  componentDidMount() {
+    this.fetchData();
+  }
+
+  fetchData() {
+    const URL = 'https://api.brawijaya-hotel.ngopi.men/reservations';
+
+    axios.get(URL)
+      .then(res => {
+        let allData = res.data.data.map(data => {
+          const {
+            id,
+            customer_name,
+            phone,
+            check_in,
+            check_out,
+            adult_capacity,
+            children_capacity
+          } = data;
+
+          return [id, customer_name, phone, check_in, check_out];
+        });
+
+        this.setState({
+          allData,
+          tableData: allData.slice(0, MAX_ITEMS)
+        });
+      })
+      .catch(err => {
+        console.log('error', err);
+      });
   }
 
   handleChange = activePage => {
     this.setState({loading: true})
     setTimeout(() => {
       this.setState({
-        tableData: tableData.slice(
+        tableData: this.state.allData.slice(
           (activePage - 1) * MAX_ITEMS, (activePage - 1) * MAX_ITEMS + MAX_ITEMS
         ),
         loading: false
@@ -131,13 +89,15 @@ export default class Orders extends Component {
   }
 
   render() {
+    const { allData } = this.state
+
     return (
       <Card className={styles.card} >
         <div className={styles.header} >
           <div className={styles.title} >
             <h1>Orders</h1>
             <div>
-              <Label circular color="grey">{tableData.length}</Label>
+              <Label circular color="grey">{allData.length}</Label>
             </div>
           </div>
           <Search
@@ -150,7 +110,7 @@ export default class Orders extends Component {
           headers={tableHeaders}
           data={this.state.tableData}
           pagination
-          totalPages={Math.ceil(tableData.length / MAX_ITEMS)}
+          totalPages={Math.ceil(allData.length / MAX_ITEMS)}
           onPageChange={this.handleChange}
           defaultWidth={500}
           loading={this.state.loading}
