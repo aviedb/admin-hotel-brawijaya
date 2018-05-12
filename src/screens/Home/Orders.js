@@ -95,7 +95,7 @@ export default class Orders extends Component {
       <Card className={styles.card} >
         <div className={styles.header} >
           <div className={styles.title} >
-            <h1>Orders</h1>
+            <h1>Reservations</h1>
             <div>
               <Label circular color="grey">{allData.length}</Label>
             </div>
