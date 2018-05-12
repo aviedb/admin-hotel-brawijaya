@@ -47,7 +47,9 @@ export default class Orders extends Component {
   fetchData() {
     axios.get('https://api.brawijaya-hotel.ngopi.men/reservations')
       .then(res => {
-        let allData = res.data.data.map(data => {
+
+        const sortedData = _.sortBy(res.data.data, o => moment(o.check_in).valueOf());
+        const allData = sortedData.map(data => {
           const {
             id,
             customer_name,
@@ -58,10 +60,10 @@ export default class Orders extends Component {
             children_capacity
           } = data;
 
-          let check_inDate = new Date(check_in.slice(0, 4), check_in.slice(5, 7), check_in.slice(8, 10)).getTime();
-          let check_outDate = new Date(check_out.slice(0, 4), check_out.slice(5, 7), check_out.slice(8, 10)).getTime();
+          const check_inDate = moment(check_in).valueOf();
+          const check_outDate = moment(check_out).valueOf();
 
-          let duration = (check_outDate - check_inDate) / 86400000;
+          const duration = (check_outDate - check_inDate) / 86400000;
 
           return [
             id,
