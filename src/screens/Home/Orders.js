@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import { Search, Label } from 'semantic-ui-react'
 import _ from 'lodash'
 import axios from 'axios';
+import moment from 'moment';
 
 //STYLES
 import styles from './css/orders.scss'
@@ -13,8 +14,8 @@ import Table from '../../components/Table'
 
 const tableHeaders = [
   'Booking Code',
-  'Full Name',
-  'Phone Number',
+  'Name',
+  'Phone',
   'Check-in',
   'Check-out',
   'Duration',
@@ -44,9 +45,7 @@ export default class Orders extends Component {
   }
 
   fetchData() {
-    const URL = 'https://api.brawijaya-hotel.ngopi.men/reservations';
-
-    axios.get(URL)
+    axios.get('https://api.brawijaya-hotel.ngopi.men/reservations')
       .then(res => {
         let allData = res.data.data.map(data => {
           const {
@@ -59,7 +58,19 @@ export default class Orders extends Component {
             children_capacity
           } = data;
 
-          return [id, customer_name, phone, check_in, check_out];
+          let check_inDate = new Date(check_in.slice(0, 4), check_in.slice(5, 7), check_in.slice(8, 10)).getTime();
+          let check_outDate = new Date(check_out.slice(0, 4), check_out.slice(5, 7), check_out.slice(8, 10)).getTime();
+
+          let duration = (check_outDate - check_inDate) / 86400000;
+
+          return [
+            id,
+            customer_name,
+            phone,
+            moment(check_inDate).format('YYYY MMM Do'),
+            moment(check_outDate).format('YYYY MMM Do'),
+            `${duration} ${duration>1?'days':'day'}`
+          ];
         });
 
         this.setState({
