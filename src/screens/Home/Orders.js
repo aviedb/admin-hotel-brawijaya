@@ -1,32 +1,30 @@
 //MODULES
-import React, { Component } from 'react'
-import { Search, Label } from 'semantic-ui-react'
-import _ from 'lodash'
+import React, { Component } from 'react';
+import { Search, Label } from 'semantic-ui-react';
+import _ from 'lodash';
 import axios from 'axios';
 import moment from 'moment';
 
 //STYLES
-import styles from './css/orders.scss'
+import styles from './css/orders.scss';
 
 //COMPONENTS
-import Card from '../../components/Card'
-import Table from '../../components/Table'
+import Card from '../../components/Card';
+import Table from '../../components/Table';
 
 const tableHeaders = [
   'Booking Code',
   'Name',
   'Phone',
   'Check-in',
-  'Check-out',
   'Duration',
-  'Visitor',
-  'Extra',
-  'Type',
+  'Guest(s)',
+  'Room(s)',
   'Total Cost'
-]
+];
 
 //INNER_CONFIG
-const MAX_ITEMS = 8
+const MAX_ITEMS = 8;
 
 //COMPONENT
 export default class Orders extends Component {
@@ -60,18 +58,22 @@ export default class Orders extends Component {
             children_capacity
           } = data;
 
+          // CALCULATE DURATION
           const check_inDate = moment(check_in).valueOf();
           const check_outDate = moment(check_out).valueOf();
-
           const duration = (check_outDate - check_inDate) / 86400000;
+
+          // PRETTIFY GUESTS
+          const adultGuests = `${adult_capacity} ${adult_capacity>1?'adults':'adult'}`;
+          const childGuests = `${children_capacity} ${children_capacity>1?'children':'child'}`;
 
           return [
             id,
             customer_name,
             phone,
-            moment(check_inDate).format('YYYY MMM Do'),
-            moment(check_outDate).format('YYYY MMM Do'),
-            `${duration} ${duration>1?'days':'day'}`
+            moment(check_inDate).format('D MMM YYYY'),
+            `${duration} ${duration>1?'days':'day'}`,
+            `${adultGuests}${children_capacity>0?' & '+childGuests:''}`
           ];
         });
 
@@ -86,23 +88,23 @@ export default class Orders extends Component {
   }
 
   handleChange = activePage => {
-    this.setState({loading: true})
+    this.setState({loading: true});
     setTimeout(() => {
       this.setState({
         tableData: this.state.allData.slice(
           (activePage - 1) * MAX_ITEMS, (activePage - 1) * MAX_ITEMS + MAX_ITEMS
         ),
         loading: false
-      })
-    }, 1000)
+      });
+    }, 1000);
   }
 
   handleSearchChange = search => {
-    console.log(search)
+    console.log(search);
   }
 
   render() {
-    const { allData } = this.state
+    const { allData } = this.state;
 
     return (
       <Card className={styles.card} >
