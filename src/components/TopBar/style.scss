@@ -39,4 +39,12 @@
       width: 1rem;
     }
   }
+
+  @media (max-width: 1230px) {
+    height: 3rem;
+
+    .left, .right {
+      padding-top: 0.75rem;
+    }
+  }
 }

@@ -137,7 +137,7 @@ export default class Orders extends Component {
           pagination
           totalPages={Math.ceil(allData.length / MAX_ITEMS)}
           onPageChange={this.handleChange}
-          defaultWidth='90rem'
+          defaultWidth='100%'
           loading={loading}
         />
       </Card>
