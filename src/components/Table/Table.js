@@ -59,7 +59,7 @@ export default class Table extends Component {
   }
 
   render() {
-    let { loading, pagination, totalPages, defaultWidth } = this.props
+    let { loading, pagination, totalPages, defaultWidth, marginTop } = this.props
 
     // loading = true
 
@@ -67,6 +67,7 @@ export default class Table extends Component {
 
     if (loading) style.filter = 'blur(10px)'
     if (defaultWidth) style.width = defaultWidth
+    if (marginTop) style.marginTop = marginTop
 
     return (
       <div className={styles.container} >

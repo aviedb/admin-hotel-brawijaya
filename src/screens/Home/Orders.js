@@ -11,6 +11,7 @@ import styles from './css/orders.scss';
 //COMPONENTS
 import Card from '../../components/Card';
 import Table from '../../components/Table';
+import RoomsInfo from '../../components/RoomsInfo';
 
 const tableHeaders = [
   'Booking Code',
@@ -55,7 +56,8 @@ export default class Orders extends Component {
             check_in,
             check_out,
             adult_capacity,
-            children_capacity
+            children_capacity,
+            rooms
           } = data;
 
           // CALCULATE DURATION
@@ -73,7 +75,8 @@ export default class Orders extends Component {
             phone,
             moment(check_inDate).format('D MMM YYYY'),
             `${duration} ${duration>1?'days':'day'}`,
-            `${adultGuests}${children_capacity>0?' & '+childGuests:''}`
+            `${adultGuests}${children_capacity>0?' & '+childGuests:''}`,
+            <RoomsInfo rooms={rooms}/>
           ];
         });
 
@@ -104,7 +107,7 @@ export default class Orders extends Component {
   }
 
   render() {
-    const { allData } = this.state;
+    const { allData, tableData, loading } = this.state;
 
     return (
       <Card className={styles.card} >
@@ -123,12 +126,12 @@ export default class Orders extends Component {
         </div>
         <Table
           headers={tableHeaders}
-          data={this.state.tableData}
+          data={tableData}
           pagination
           totalPages={Math.ceil(allData.length / MAX_ITEMS)}
           onPageChange={this.handleChange}
           defaultWidth={500}
-          loading={this.state.loading}
+          loading={loading}
         />
       </Card>
     )
