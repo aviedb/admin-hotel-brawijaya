@@ -25,7 +25,7 @@ export default class RoomsInfo extends Component {
 
   updateTableData() {
     const tableData = this.props.rooms.map(room => {
-      const extraBed = room.extra_bed>0?<i class="fas fa-check"></i>:'';
+      const extraBed = room.extra_bed>0?<i className="fas fa-check"></i>:'';
 
       return [
         room.name,
