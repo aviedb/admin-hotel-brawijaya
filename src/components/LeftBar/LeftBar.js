@@ -27,6 +27,7 @@ class LeftBar extends Component {
     return (
       <div className={styles.container} >
         <Sidebar
+          style={{fontFamily: 'Google Sans'}}
           as={Menu}
           visible
           vertical

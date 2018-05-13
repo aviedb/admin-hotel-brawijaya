@@ -103,7 +103,7 @@ export default class Table extends Component {
             ? (
               <div className={styles.pagination} >
                 <Pagination
-                  style={{ fontFamily: 'Google Sans' }}
+                  style={{ fontFamily: 'Google Sans', position: 'fixed', marginTop: '-3rem' }}
                   defaultActivePage={1}
                   firstItem={null}
                   lastItem={null}
