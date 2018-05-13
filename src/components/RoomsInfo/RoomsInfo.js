@@ -4,6 +4,15 @@ import { Button, Header, Modal } from 'semantic-ui-react';
 import Table from '../Table';
 import styles from './style.scss';
 
+const style = {
+  button: {
+    fontFamily: 'Google Sans',
+    fontWeight: 400
+  }, header: {
+    fontFamily: 'Google Sans'
+  }
+}
+
 export default class RoomsInfo extends Component {
   constructor(props) {
     super(props);
@@ -40,14 +49,10 @@ export default class RoomsInfo extends Component {
     });
   }
 
-  handleChange() {
-
-  }
-
   render() {
     return (
-      <Modal trigger={<Button>Details</Button>}>
-        <Modal.Header>Room(s)</Modal.Header>
+      <Modal trigger={<Button style={style.button}>Details</Button>}>
+        <Modal.Header style={style.header}>Details</Modal.Header>
         <Modal.Content>
           <Table
             headers={this.state.tableHeader}
