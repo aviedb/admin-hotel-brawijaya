@@ -21,7 +21,7 @@ const tableHeaders = [
   'Duration',
   'Guest(s)',
   'Room(s)',
-  'Total Cost'
+  'Total Price'
 ];
 
 //INNER_CONFIG
