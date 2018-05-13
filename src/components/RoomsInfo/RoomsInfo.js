@@ -44,7 +44,7 @@ export default class RoomsInfo extends Component {
 
   render() {
     return (
-      <Modal trigger={<Button>More</Button>}>
+      <Modal trigger={<Button>Details</Button>}>
         <Modal.Header>Room(s)</Modal.Header>
         <Modal.Content>
           <Table

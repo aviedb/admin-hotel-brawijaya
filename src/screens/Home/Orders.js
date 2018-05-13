@@ -69,6 +69,12 @@ export default class Orders extends Component {
           const adultGuests = `${adult_capacity} ${adult_capacity>1?'adults':'adult'}`;
           const childGuests = `${children_capacity} ${children_capacity>1?'children':'child'}`;
 
+          // CALCULATE TOTAL PRICE
+          let totalPrice = 0;
+          rooms.map(room => {
+            return totalPrice += room.price;
+          });
+
           return [
             id,
             customer_name,
@@ -76,7 +82,8 @@ export default class Orders extends Component {
             moment(check_inDate).format('D MMM YYYY'),
             `${duration} ${duration>1?'days':'day'}`,
             `${adultGuests}${children_capacity>0?' & '+childGuests:''}`,
-            <RoomsInfo rooms={rooms}/>
+            <RoomsInfo rooms={rooms}/>,
+            `Rp. ${totalPrice}`
           ];
         });
 
@@ -130,7 +137,7 @@ export default class Orders extends Component {
           pagination
           totalPages={Math.ceil(allData.length / MAX_ITEMS)}
           onPageChange={this.handleChange}
-          defaultWidth={500}
+          defaultWidth='90rem'
           loading={loading}
         />
       </Card>
