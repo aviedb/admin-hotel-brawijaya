@@ -18,6 +18,31 @@
     height: 100%;
     width: 12rem;
     background-color: #076645;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+
+    .icon {
+      color: white;
+      cursor: pointer;
+      transition: .3s;
+    }
+
+    .span {
+      padding-left: 1.25rem;
+      color: white;
+      transition: .5s;
+    }
+
+    @media (min-width: 1231px) {
+      .icon {
+        display: none;
+      }
+
+      .span {
+        padding-left: 0;
+      }
+    }
   }
 
   .right {

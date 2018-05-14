@@ -15,11 +15,46 @@ import TopBar from '../../components/TopBar';
 
 //COMPONENT
 class ScreenWrapper extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      width: window.innerWidth,
+      visible: true
+    }
+  }
+
+  componentDidMount() {
+    addEventListener('resize', () => this.updateScreenWidth());
+    this.updateVisible();
+  }
+
+  updateScreenWidth() {
+    this.setState({
+      width: window.innerWidth,
+      visible: window.innerWidth > 1230
+    });
+  }
+
+  updateVisible() {
+    if (window.innerWidth < 1231) {
+      this.setState({
+        visible: false
+      });
+    }
+  }
+
+  toggleVisible() {
+    this.setState({
+      visible: !this.state.visible
+    });
+  }
+
   render() {
     return (
       <div className={styles.container} >
-        <TopBar />
-        <LeftBar />
+        <TopBar toggleVisible={() => this.toggleVisible()}/>
+        <LeftBar visible={this.state.visible} />
 
         <div className={styles.content} >
           {this.props.orders}

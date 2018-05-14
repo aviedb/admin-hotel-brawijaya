@@ -20,21 +20,13 @@ const trigger = (
 )
 
 export default class TopBar extends Component {
+
   render() {
     return (
       <div className={styles.container}>
-        <div className={styles.left} >
-          ADMIN
-        </div>
-        <div className={styles.right} >
-          <Dropdown
-            trigger={trigger}
-            options={notif}
-            pointing='top right'
-            icon={<div style={{width: 30}} />}
-            noResultsMessage='No notifications yet' />
-          <Image className={styles.image} src='/static/icon/profile.svg' avatar />
-          <span>Zain Fikri Hanastyono</span>
+        <div className={styles.left} onClick={() => this.props.toggleVisible()}>
+          <button className={`fas fa-bars ${styles.icon}`}/>
+          <span className={styles.span}>ADMIN</span>
         </div>
       </div>
     )
