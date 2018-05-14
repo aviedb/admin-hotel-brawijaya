@@ -45,7 +45,10 @@ export default class Orders extends Component {
   }
 
   fetchData(rawData) {
-    const sortedData = _.sortBy(rawData, o => moment(o.check_in).valueOf());
+    let sortedData = _.sortBy(rawData, o => moment(o.check_in).valueOf());
+
+    if (this.props.reverse) sortedData = sortedData.reverse();
+
     const allData = sortedData.map(data => {
       const {
         id,

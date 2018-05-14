@@ -41,7 +41,7 @@ class Orders extends Component {
     else {
       return (
         <div>
-          <ScreenContent data={data} header='History'/>
+          <ScreenContent data={data} header='History' reverse='true' />
         </div>
       )
     }
