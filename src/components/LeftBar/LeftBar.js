@@ -42,7 +42,7 @@ class LeftBar extends Component {
             active={activeItem === 'home'}
             onClick={this.handleItemClick.bind(this, '/home')}>
             <div  >
-              <Image src={'/static/icon/dashboard.svg'} className={styles.image} inline verticalAlign='bottom'/>
+              <i className={`fas fa-th-list ${styles.image}`}></i>
               <span className={styles.span} >Dashboard</span>
             </div>
           </Menu.Item>
