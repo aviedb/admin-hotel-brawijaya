@@ -51,7 +51,7 @@ class LeftBar extends Component {
             active={activeItem === 'checkedIn'}
             onClick={this.handleItemClick.bind(this, '/checkedIn')}>
             <div  >
-              <Image src={'/static/icon/dashboard.svg'} className={styles.image} inline verticalAlign='bottom'/>
+              <i className={`fas fa-calendar-check ${styles.image}`}></i>
               <span className={styles.span} >Checked-in</span>
             </div>
           </Menu.Item>
@@ -60,7 +60,7 @@ class LeftBar extends Component {
             active={activeItem === 'history'}
             onClick={this.handleItemClick.bind(this, '/history')}>
             <div  >
-              <Image src={'/static/icon/dashboard.svg'} className={styles.image} inline verticalAlign='bottom'/>
+              <i className={`fas fa-clock ${styles.image}`}></i>
               <span className={styles.span} >History</span>
             </div>
           </Menu.Item>
