@@ -1,16 +1,17 @@
 .container {
   display: block;
+  overflow-x: scroll;
 
   .content {
     display: flex;
     height: 100%;
     padding: 12px;
-    padding-top: 55px;
-    padding-left: 165px;
+    padding-top: 60px;
+    padding-left: 180px;
     justify-content: center;
 
     @media(max-width: 1230px) {
-      padding-left: 0;
+      padding-left: 15px;
     }
 
     .card {

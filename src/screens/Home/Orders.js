@@ -3,6 +3,7 @@ import axios from 'axios';
 import moment from 'moment';
 
 import ScreenContent from '../ScreenContent';
+import Loader from '../../components/Loader';
 
 class Orders extends Component {
   constructor(props) {
@@ -38,9 +39,7 @@ class Orders extends Component {
     const { loading, data } = this.state;
 
     if(loading) {
-      return (
-        <h1>Loading</h1>
-      )
+      return <Loader />
     }
     else {
       return (
