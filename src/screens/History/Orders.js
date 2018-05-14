@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import moment from 'moment';
 
 import ScreenContent from '../ScreenContent';
 
@@ -21,11 +20,8 @@ class Orders extends Component {
   fetchData() {
     axios.get('https://api.brawijaya-hotel.ngopi.men/reservations')
       .then(res => {
-        const now = moment().valueOf();
-        const filteredData = res.data.data.filter(data => moment(data.check_in).valueOf() > now);
-
         this.setState({
-          data: filteredData,
+          data: res.data.data,
           loading: false
         });
       })
@@ -45,7 +41,7 @@ class Orders extends Component {
     else {
       return (
         <div>
-          <ScreenContent data={data} header='Waiting for check-in'/>
+          <ScreenContent data={data} header='History'/>
         </div>
       )
     }

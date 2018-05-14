@@ -11,6 +11,10 @@ class LeftBar extends Component {
   getRouteIndex(routeName) {
     if (routeName.indexOf('home') !== -1) {
       return 'home'
+    } else if (routeName.indexOf('checkedIn') !== -1) {
+      return 'checkedIn'
+    } else if (routeName.indexOf('history') !== -1) {
+      return 'history'
     }
   }
 
@@ -43,12 +47,21 @@ class LeftBar extends Component {
             </div>
           </Menu.Item>
           <Menu.Item
-            name='logout'
-            active={activeItem === 'logout'}
-            onClick={this.handleItemClick.bind(this, '/qrcode')}>
-            <div to={'#'} >
-              <Image src={'/static/icon/logout.svg'} className={styles.image} inline verticalAlign='bottom'/>
-              <span className={styles.span} >Logout</span>
+            name='checkedIn'
+            active={activeItem === 'checkedIn'}
+            onClick={this.handleItemClick.bind(this, '/checkedIn')}>
+            <div  >
+              <Image src={'/static/icon/dashboard.svg'} className={styles.image} inline verticalAlign='bottom'/>
+              <span className={styles.span} >Checked-in</span>
+            </div>
+          </Menu.Item>
+          <Menu.Item
+            name='history'
+            active={activeItem === 'history'}
+            onClick={this.handleItemClick.bind(this, '/history')}>
+            <div  >
+              <Image src={'/static/icon/dashboard.svg'} className={styles.image} inline verticalAlign='bottom'/>
+              <span className={styles.span} >History</span>
             </div>
           </Menu.Item>
 

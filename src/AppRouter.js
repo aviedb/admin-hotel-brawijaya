@@ -5,10 +5,8 @@ import axios from 'axios'
 
 //SCREENS
 import Home from './screens/Home'
-import QRCode from './screens/QRCode/index'
-import QRCode2 from './screens/QRCode2'
-import Login from './screens/Login'
-import Register from './screens/Register'
+import CheckedIn from './screens/CheckedIn';
+import History from './screens/History';
 
 //CONFIG
 import {
@@ -29,12 +27,10 @@ export default class AppRouter extends Component {
     return (
       <BrowserRouter>
         <Switch>
-          <Route path="/qrcode2" component={QRCode2} />
-          <Route path="/qrcode" component={QRCode} />
           <Redirect from="/" exact to="/home" />
           <Route path="/home" exact component={Home} />
-          <Route path="/login" exact component={Login} />
-          <Route path="/register" exact component={Register} />
+          <Route path="/checkedIn" exact component={CheckedIn} />
+          <Route path="/history" exact component={History} />
         </Switch>
       </BrowserRouter>
     )

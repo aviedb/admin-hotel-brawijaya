@@ -22,7 +22,9 @@ class Orders extends Component {
     axios.get('https://api.brawijaya-hotel.ngopi.men/reservations')
       .then(res => {
         const now = moment().valueOf();
-        const filteredData = res.data.data.filter(data => moment(data.check_in).valueOf() > now);
+        const filteredData = res.data.data.filter(data => {
+          return moment(data.check_out).valueOf() >= now && moment(data.check_in) <= now;
+        });
 
         this.setState({
           data: filteredData,
@@ -45,7 +47,7 @@ class Orders extends Component {
     else {
       return (
         <div>
-          <ScreenContent data={data} header='Waiting for check-in'/>
+          <ScreenContent data={data} header='Checked-in'/>
         </div>
       )
     }
