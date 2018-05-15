@@ -58,7 +58,8 @@ export default class Orders extends Component {
         check_out,
         adult_capacity,
         children_capacity,
-        rooms
+        rooms,
+        total_price
       } = data;
 
       // CALCULATE DURATION
@@ -71,11 +72,11 @@ export default class Orders extends Component {
       const childGuests = `${children_capacity} ${children_capacity>1?'children':'child'}`;
 
       // CALCULATE TOTAL PRICE
-      let totalPrice = 0;
-      rooms.map(room => {
-        return totalPrice += room.price;
-      });
-      totalPrice *= duration;
+      // let totalPrice = 0;
+      // rooms.map(room => {
+      //   return totalPrice += room.price;
+      // });
+      // totalPrice *= duration;
 
       return [
         id,
@@ -85,7 +86,7 @@ export default class Orders extends Component {
         `${duration} ${duration>1?'nights':'night'}`,
         `${adultGuests}${children_capacity>0?' & '+childGuests:''}`,
         <RoomsInfo rooms={rooms}/>,
-        `Rp. ${totalPrice}`
+        `Rp. ${total_price}`
       ];
     });
 
