@@ -54,7 +54,11 @@ class ScreenWrapper extends Component {
     return (
       <div className={styles.container} >
         <TopBar toggleVisible={() => this.toggleVisible()}/>
-        <LeftBar visible={this.state.visible} />
+        <LeftBar
+          visible={this.state.visible}
+          toggleVisible={() => this.toggleVisible()}
+          screenWidth={this.state.width}
+        />
 
         <div className={styles.content} >
           {this.props.orders}

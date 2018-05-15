@@ -28,12 +28,18 @@ class LeftBar extends Component {
 
   handleItemClick(link, e, activeItem) {
     e.preventDefault()
-    this.props.history.push(link)
-    this.setState({activeItem})
+
+    const { screenWidth, toggleVisible } = this.props;
+    if(screenWidth < 1231) toggleVisible();
+
+    setTimeout(() => {
+      this.props.history.push(link);
+      this.setState({activeItem});
+    }, (screenWidth<1231?500:0));
   }
 
   render() {
-    let { activeItem, visible } = this.state
+    let { activeItem } = this.state
     return (
       <div className={styles.container} >
         <Sidebar
