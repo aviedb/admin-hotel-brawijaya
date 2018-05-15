@@ -25,7 +25,7 @@ const tableHeaders = [
 ];
 
 //INNER_CONFIG
-const MAX_ITEMS = 8;
+const MAX_ITEMS = 7;
 
 //COMPONENT
 export default class Orders extends Component {

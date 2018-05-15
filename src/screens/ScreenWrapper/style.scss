@@ -9,9 +9,11 @@
     padding-top: 60px;
     padding-left: 180px;
     justify-content: center;
+    transition: .5s;
 
     @media(max-width: 1230px) {
       padding-left: 15px;
+      transition: .5s;
     }
 
     .card {
