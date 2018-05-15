@@ -82,7 +82,7 @@ export default class Orders extends Component {
         customer_name,
         phone,
         moment(check_inDate).format('D MMM YYYY'),
-        `${duration} ${duration>1?'days':'day'}`,
+        `${duration} ${duration>1?'nights':'night'}`,
         `${adultGuests}${children_capacity>0?' & '+childGuests:''}`,
         <RoomsInfo rooms={rooms}/>,
         `Rp. ${totalPrice}`
