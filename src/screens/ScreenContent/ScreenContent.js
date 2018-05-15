@@ -75,6 +75,7 @@ export default class Orders extends Component {
       rooms.map(room => {
         return totalPrice += room.price;
       });
+      totalPrice *= duration;
 
       return [
         id,

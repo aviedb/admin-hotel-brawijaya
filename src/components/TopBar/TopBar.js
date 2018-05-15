@@ -25,7 +25,7 @@ export default class TopBar extends Component {
     return (
       <div className={styles.container}>
         <div className={styles.left} onClick={() => this.props.toggleVisible()}>
-          <button className={`fas fa-bars ${styles.icon}`}/>
+          <i className={`fas fa-bars ${styles.icon}`}/>
           <span className={styles.span}>ADMIN</span>
         </div>
       </div>

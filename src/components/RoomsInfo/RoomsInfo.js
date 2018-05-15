@@ -40,7 +40,7 @@ export default class RoomsInfo extends Component {
         room.name,
         room.type,
         extraBed,
-        `Rp. ${room.price}`
+        `Rp. ${room.price}/night`
       ];
     });
 
